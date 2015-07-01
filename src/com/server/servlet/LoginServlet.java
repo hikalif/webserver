@@ -42,14 +42,14 @@ public class LoginServlet extends HttpServlet
 		UserDB db = new UserDB();
 		db.createConnection();
 		
-		String id = request.getParameter("userid");
-		String password = request.getParameter("password");
+		String id = request.getParameter("userid_input");
+		String password = request.getParameter("password_input");
 		
 		String query_sql = String.format("select * from %s where id=%s and password=%s", IStringConstans.USER_TABLE_NAME, id, password);
 		
 		if (db.query(query_sql)) 
 		{
-			response.sendRedirect("JSP/main.jsp");
+			response.sendRedirect("JSP/mg_index.jsp");
 		}
 		else 
 		{
